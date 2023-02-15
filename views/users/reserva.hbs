@@ -1,0 +1,82 @@
+<div class="container               mb-5 py-5">
+    <div class="row">
+        <div class="col-10">
+            <H1 class="text-left">Faça sua reserva</H1>
+        </div>
+        <div class="col-2">
+            <a href="/reserva/dados" class="btn btn-primary">Ver
+                reserva</a>
+        </div>
+    </div>
+    <hr>
+
+    <h4 class="text-center">Nos informe:</h3>
+        <form action="/reserva/" method="post" class="row g-4 my-5 py-5 ">
+            <div class="col-4">
+                <label for="checkin">Check-in</label>
+                <input class="form-control" type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="col-4">
+                <label for="checkout">Check-out</label>
+                <input class="form-control" type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="col-4">
+                <label for="pessoas">A quantidade de Hóspedes</label>
+                <select name="pessoas" id="pessoas" class="form-select" aria-label="Default select example" required>
+                    <option value="1" selected>1 pessoa</option>
+                    <option value="2">2 pessoas</option>
+                    <option value="3">3 Pessoas</option>
+                    <option value="4">4 Pessoas</option>
+                </select>
+            </div>
+            {{!-- <div class="col-4">
+            <label for="tipo">Tipo do quarto que deseja</label>
+            <select name="tipo" id="tipo" class="form-select" aria-label="Default select example" required>
+                <option value="Simples" selected>Simples</option>
+                <option value="Luxuoso">Luxuoso</option>
+                <option value="Suíte">Suíte</option>
+            </select>
+        </div> --}}
+            <div class="col-4">
+                <label for="promo">Código Promocional</label>
+                <input class="form-control" type="text" id="promo" name="promo" placeholder="Código do mês: PROMO20">
+            </div>
+            <div class="col-4">
+                <label for="quarto">Esses são os quartos disponiveis:</label>
+                <select name="quarto" id="quarto" class="form-select" required>
+                    {{#each quartos}}
+                    <option value="{{_id}}">N° {{numero}}, Tipo: {{tipo}}, MaxPessoas: {{maxPessoas}}</option>
+                    {{else}}
+                    <option value="0">Não há quartos disponiveis</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="col-4">
+                <label for="cpf">CPF</label>
+                <input class="form-control" type="text" id="cpf" name="cpf" placeholder="Insira seu cpf" maxlength="11">
+            </div>
+            <div class="col-auto mx-auto">
+                <button type="submit" class="btn btn-success mt-4">Fazer Reserva</button>
+            </div>
+        </form>
+
+</div>
+
+<div class="mb-5 pb-5"></div>
+
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("checkin").setAttribute("min", today);
+    document.getElementById("checkout").setAttribute("min", today);
+</script>

@@ -1,0 +1,47 @@
+<div class="conteiner my-5 py-5">
+    <h1 class="text-center">Aqui estâo suas informações:</h1>
+    <hr>
+    {{#each reserva}}
+    <div class="row g-4 my-5 mx-5">
+        
+        <h3>Informações do quarto:</h5>
+        <hr>
+
+        <div class="col-3">
+            <h4>Número do seu quarto: {{quarto.numero}}</h5>
+        </div>
+        <div class="col-3">
+            <h5>Quantidade de Pessoas: {{pessoas}}</h5>
+        </div>
+        <div class="col-3">
+            <h5>Número máx. de crianças: {{quarto.criancas}}</h5>
+        </div>
+        <div class="col-3">
+            <h5>Preço p/noite: {{quarto.preco}}</h5>
+        </div>    
+
+
+        <h3 class="mt-5">Datas:</h3>
+        <hr>
+
+        <div class="col-6">
+            <h5>Data de entrada: {{checkin}}</h5>
+        </div>
+        <div class="col-6">
+            <h5>Data de saída: {{checkout}}</h5>
+        </div>
+    </div>
+
+
+        {{!-- <div class="col-3">
+            <h5>Cupom de desconto: {{promo}}</h5>
+        </div> --}}
+
+    {{else}}
+
+        <div class="conteiner my-5">
+            <h4 class="text-center my-5">Não há reservas feitas</h4>
+        </div>
+
+    {{/each}}
+</div>

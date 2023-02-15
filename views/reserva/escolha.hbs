@@ -1,0 +1,29 @@
+<div class="container my-5 mx-auto">
+
+    <h1 class="text-center">Esses são os quarto disponíveis:</h1>
+    <hr>
+
+    {{#each quartos}}
+    <div class="card my-3 mx-auto w-50">
+        <img src="/img/reserva/{{tipo}}.jpg" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title mt-2">Quarto {{tipo}}</h5>
+                    <hr>
+                    <p class="card-text ">Máximo de pessoas: {{maxPessoas}}</p>
+                    <p class="card-text">Máximo de criancas: {{criancas}}</p>
+                    <p class="card-text">Preço por noite: {{preco}}</p>
+                    <form action="/reserva/dados" method="post">
+                        <label for="quarto"></label>
+                        <input type="hidden" name="quarto" value="{{_id}}">
+                        <button type="submit" class=" btn btn-success">Escolher esse</button>
+                    </form>
+        </div>
+    </div>
+        {{else}}
+
+        <h1>Descupe, nesse momento não há quartos disponiveis</h1>
+
+        {{/each}}
+        
+    </div>
+</div>

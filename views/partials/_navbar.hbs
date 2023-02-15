@@ -1,0 +1,22 @@
+
+
+  <nav class="sticky-top">
+
+    <div class="logo">
+      <a href="/"><img src="/img/logo_navbar.png" alt="logo_Navbar"></a>
+    </div>
+    <ul>
+      <li><a href="/" class="active">Início</a></li>
+      <li><a href="/acomodacoes">Acomodaçôes</a></li>
+      <li><a href="/restaurante">Restaurante</a></li>
+      <li><a href="/spa">Spa</a></li>
+      <li><a href="/atividades">Atividades</a></li>
+      <li><a href="/eventos">Eventos</a></li>
+      {{#if user}}
+      <li><a href="/users/logout">Sair</a></li>
+      {{else}}
+      <li><a href="/users/login">Login</a></li>
+      {{/if}}
+    </ul>
+  </nav>
+

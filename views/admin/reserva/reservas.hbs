@@ -1,0 +1,58 @@
+<div class="my-4 text-center">
+    <h3>Painel de controle:</h1>
+    <div class="btn-group">
+        <a href="/admin/" class="btn btn-primary">Quartos</a>
+        <a href="/admin/usuarios" class="btn btn-primary ">Usuários</a>
+        <a href="/admin/reservas" class="btn btn-primary active">Reservas</a>
+    </div>
+</div>
+<div class="card text-white bg-dark mx-4 mb-5">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-10">
+                <h3 class="text-left mx-5">Reservas</h3>
+            </div>
+            <div class="col">
+                <a href="/reserva"><button type="button" class="btn btn-success mt-2">Criar
+                        Reserva</button></a>
+            </div>
+        </div>
+        <hr>
+        {{#each reservas}}
+        <table class="table table-dark table-striped">
+            <thead>
+                <h5>N° do Quarto: {{quarto.numero}}</h5>
+                <tr>
+                    <th scope="col">CPF: </th>
+                    <th scope="col">Valor: </th>
+                    <th scope="col">Promoção: </th>
+                    <th scope="col">Pessoas: </th>
+                    <th scope="col">Check-in: </th>
+                    <th scope="col">Check-out: </th>
+                    <th scope="col">Opções: </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{cpf}}</td>
+                    <td>{{quarto.preco}}</td>
+                    <td>{{promo}}</td>          
+                    <td>{{pessoas}}</td>
+                    <td><h6>{{checkin}}</h6></td>
+                    <td><h6>{{checkout}}</h6></td>
+
+                    <td>
+                        <a href="/admin/editReserva/{{_id}}" class="btn btn-warning" role="button"
+                            data-bs-toggle="button">Editar</a>
+                        <a href="/admin/delReserva/{{_id}}" class="btn btn-danger" role="button"
+                            data-bs-toggle="button">Apagar</a></td>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        {{else}}
+        <h4 class="text-center">Não há reservas feitas</h3>
+        {{/each}}
+    </div>
+</div>
